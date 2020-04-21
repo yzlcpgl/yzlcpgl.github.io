@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiyuyang.cool</id>
     <title>BLOG</title>
-    <updated>2020-04-21T05:27:54.999Z</updated>
+    <updated>2020-04-21T05:35:43.582Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiyuyang.cool"/>
     <link rel="self" href="https://jiyuyang.cool/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://jiyuyang.cool/images/avatar.png</logo>
     <icon>https://jiyuyang.cool/favicon.ico</icon>
     <rights>All rights reserved 2020, BLOG</rights>
+    <entry>
+        <title type="html"><![CDATA[测试]]></title>
+        <id>https://jiyuyang.cool/post/ce-shi/</id>
+        <link href="https://jiyuyang.cool/post/ce-shi/">
+        </link>
+        <updated>2020-04-21T05:33:34.000Z</updated>
+        <content type="html"><![CDATA[<p>#水一篇文章，康康需不需要反复设置网关。<br>
+<img src="https://jiyuyang.cool/post-images/1587447263030.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello World]]></title>
         <id>https://jiyuyang.cool/post/hello-gridea/</id>
