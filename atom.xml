@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yzlcpgl.github.io</id>
     <title>BLOG</title>
-    <updated>2020-04-21T14:30:38.227Z</updated>
+    <updated>2020-04-21T14:48:32.507Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yzlcpgl.github.io"/>
     <link rel="self" href="https://yzlcpgl.github.io/atom.xml"/>
@@ -10,6 +10,23 @@
     <logo>https://yzlcpgl.github.io/images/avatar.png</logo>
     <icon>https://yzlcpgl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BLOG</rights>
+    <entry>
+        <title type="html"><![CDATA[事项安排1——四六级]]></title>
+        <id>https://yzlcpgl.github.io/post/shi-xiang-an-pai-1-si-liu-ji/</id>
+        <link href="https://yzlcpgl.github.io/post/shi-xiang-an-pai-1-si-liu-ji/">
+        </link>
+        <updated>2020-04-21T15:22:33.000Z</updated>
+        <content type="html"><![CDATA[<p>【目标】：2020年通过四六级考试</p>
+<p>【基础任务】：<br>
+1、每天50个单词<br>
+2、每天40min听力<br>
+3、每天一篇短文背诵</p>
+<p>【拓展任务：5月10日起，每三天做一份卷子】</p>
+<p>【预计时间】：3h/day<br>
+<img src="https://yzlcpgl.github.io/post-images/1587479818489.JPG" alt="" loading="lazy"><br>
+<img src="https://yzlcpgl.github.io/post-images/1587479830114.JPG" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[大学时间安排]]></title>
         <id>https://yzlcpgl.github.io/post/da-xue-shi-jian-an-pai/</id>
