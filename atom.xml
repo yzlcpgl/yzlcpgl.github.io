@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yzlcpgl.github.io</id>
     <title>BLOG</title>
-    <updated>2020-04-23T09:25:04.324Z</updated>
+    <updated>2020-04-27T14:03:26.126Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yzlcpgl.github.io"/>
     <link rel="self" href="https://yzlcpgl.github.io/atom.xml"/>
@@ -10,6 +10,198 @@
     <logo>https://yzlcpgl.github.io/images/avatar.png</logo>
     <icon>https://yzlcpgl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BLOG</rights>
+    <entry>
+        <title type="html"><![CDATA[焦急的每日任务]]></title>
+        <id>https://yzlcpgl.github.io/post/jiao-ji-de-mei-ri-ren-wu/</id>
+        <link href="https://yzlcpgl.github.io/post/jiao-ji-de-mei-ri-ren-wu/">
+        </link>
+        <updated>2020-04-27T13:44:21.000Z</updated>
+        <content type="html"><![CDATA[<lu>
+<li>50个单词</li>
+<li>上课，并整理笔记及做作业（手写/博客）</li>
+<li>C++语言/汇编语言/linux系统，轮流，2h</li>
+<li>计蒜客3道题，彻底弄明白，并写出博客</li>
+<li>单片机1h</li>
+<li>高数2h</li>
+<li>看书一本，古代系列</li>
+</lu>
+<figure data-type="image" tabindex="1"><img src="https://yzlcpgl.github.io/post-images/1587996156176.JPG" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[链表]]></title>
+        <id>https://yzlcpgl.github.io/post/lian-biao/</id>
+        <link href="https://yzlcpgl.github.io/post/lian-biao/">
+        </link>
+        <updated>2020-04-27T13:23:29.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="链表建立">链表建立</h3>
+<p>使用结构体</p>
+<pre>
+struct node{
+    int num;
+    struct node* next;
+}
+</pre>
+<p>格式如上，struct+名字+内容+可选加别名</p>
+<h3 id="链表空间分配">链表空间分配</h3>
+<p>如下，是对单个节点分配链表空间</p>
+ <pre>
+  p1=p2=(struct node*)malloc(sizeof(struct node));
+</pre>
+<h3 id="常用链表定义">常用链表定义</h3>
+<p>在主函数中：</p>
+  <pre>
+  struct node * head,* p,* q;//定义必须的指针；
+  head=NULL;//给头节点赋值为空
+  </pre>
+<p>定义之后，在函数中开始赋值</p>
+<pre>
+p=(struct node *)malloc(sizeof(struct node));
+</pre>
+<p>完整的链表创建则如下所示：</p>
+<pre>
+struct node * head,* p,* q;//先定义必须的指针；
+	head=NULL;//让头指针指向NULL，不然后面判断head没法进行。
+	while(scanf("%d->",&a))//输入的同时也判断输入的内容，如果是"1->"scanf返回的是1，也是true，当输入'.'的时候，scanf返回的是0，false。被留在缓冲区
+	{
+		p=(struct node *)malloc(sizeof(struct node));
+		p->num=a;
+		p->next=NULL;
+		if(head==NULL)
+		{
+			head=p;//第一次时候，将链表的结点地址传给head
+		}
+		else
+		{
+			q->next=p;//第二次以及以上母结点的下一个结点为p
+		}
+		q=p;//改选中的结点为下一个结点
+	}
+</pre>
+<h3 id="项目实战合并两个单链表">项目实战：合并两个单链表</h3>
+<pre name = "code_0" >
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+	int num;
+	struct node * next;
+};
+struct node * exchange(struct node *p, struct node *p1);
+int main()
+{
+	struct node * head, *p, *q= nullptr, *t, *head1, *p1, *q1= nullptr;
+	int a, b;
+	head = NULL;
+	head1 = NULL;
+	while (scanf("%d->",&a))
+	{
+		p = (struct node *)malloc(sizeof(struct node));
+		p->num = a;
+		p->next = NULL;
+		if (head == NULL)
+		{
+			head = p;
+		}
+		else
+		{
+			q->next = p;
+		}
+		q = p;
+	}
+	getchar();
+	while (scanf("%d->", &b))
+	{
+		p1 = (struct node *)malloc(sizeof(struct node));
+		p1->num = b;
+		p1->next = NULL;
+		if (head1 == NULL)
+		{
+			head1 = p1;
+		}
+		else
+		{
+			q1->next = p1;
+		}
+		q1 = p1;
+	}
+	t = exchange(head, head1);
+	while (t->next != NULL)
+	{
+		printf("%d->", t->num);
+		t = t->next;
+	}
+	printf("%d->NULL", t->num);
+	return 0;
+}
+struct node * exchange(struct node *head, struct node *head1)
+{
+	if (head == NULL || head1 == NULL)
+	{
+		return head == NULL ? head1 : head;
+	}
+	struct node *head3 = NULL;
+	if (head->num <= head1->num)
+	{
+		head3 = head;
+		head3->next = exchange(head->next, head1);
+	}
+	else
+	{
+		head3 = head1;
+		head3->next = exchange(head, head1->next);
+	}
+	return head3;
+}
+</pre>
+<p><i>ntf(&quot;%d-&gt;NULL&quot;,t-&gt;num);<br>
+return 0;<br>
+}<br>
+struct node * exchange(struct node *head,struct node *head1)<br>
+{<br>
+if(head<mark>NULL||head1</mark>NULL)<br>
+{<br>
+return head==NULL?head1:head;<br>
+}<br>
+struct node *head3=NULL;<br>
+if(head-&gt;num&lt;=head1-&gt;num)<br>
+{<br>
+head3=head;<br>
+head3-&gt;next=exchange(head-&gt;next,head1);<br>
+}<br>
+else<br>
+{<br>
+head3=head1;<br>
+head3-&gt;next=exchange(head,head1-&gt;next);<br>
+}<br>
+return head3;<br>
+}</p>
+<p><i>©代码源自CSDN[长高]原文链接：https://blog.csdn.net/weixin_45677047/java/article/details/105457936</i></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[随笔（想撸一篇文章啊）]]></title>
+        <id>https://yzlcpgl.github.io/post/sui-bi-xiang-lu-yi-pian-wen-zhang-a/</id>
+        <link href="https://yzlcpgl.github.io/post/sui-bi-xiang-lu-yi-pian-wen-zhang-a/">
+        </link>
+        <updated>2020-04-24T16:20:22.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="最近的想法真的是一天一变">最近的想法真的是一天一变</h3>
+<p>想了想，我是不能单活在现实里的。<br>
+倘若要活在现实中，单活在油盐酱醋这样的实物里，我会像脱离了水的鱼一样，枯死在沙砾上。<br>
+我需要幻想，需要像梦境一样的东西。<br>
+那个梦境，是我避难的地方，更是我活下去的水。<br>
+侯说，越长大，越觉得“每个人都是一座孤岛”说得很对。<br>
+我也这样觉得。但，孤岛不是孤立无援，是每个人独属于自己的生存之所。<br>
+在那个孤岛里，人人都做着梦。都在以自己的方式，将灵魂卸下，栖息在那里。<br>
+当他对孤岛毫无在意时，孤岛就如同一座普通的岛屿，他每日进进出出，只记得，约莫有些花啊草啊，沙滩岩石啊，好像是个没什么特色的孤岛。<br>
+有的人，不相信外界，不相信孤岛，只战战兢兢地抢夺每一丝的利，放任孤岛杂草丛生，腐臭的恶浪拍打礁石。<br>
+但孤岛只是一个岛。只有主人的灵魂偶尔在这里栖息。人们生活在另一个维度。</p>
+<p>孤岛，存在于每个人内心认为它存在之时。</p>
+<p>孤岛，不是理想与梦想，不是幻想与绝望。它是流，存储心流的地方。</p>
+<p>昂，我是要与外界交互的。我要说话，说出对世界，对外界的浅薄之见。用小小的物品，让我对世界的理解蕴含其中。</p>
+<p>代码啊，突然感觉很好学。是一项伟大的工具。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[搞了个毛线啊]]></title>
         <id>https://yzlcpgl.github.io/post/gao-liao-ge-mao-xian-a/</id>
@@ -363,41 +555,6 @@ codes题库            http://codevs.cn/problem/?problemset_id=1<br>
 <h3 id="驾驶证随机安排">⏳驾驶证：随机安排</h3>
 <h3 id="考研大四9月可报名12月打印准考证日常准备2021年1月开始全心备考至2022年1月结束">⏳考研：大四9月可报名，12月打印准考证【日常准备，2021年1月开始全心备考，至2022年1月结束】</h3>
 <h3 id="毕业设计大四11月开题4月份答辩2022年1月">⏳毕业设计：大四11月开题，4月份答辩【2022年1月】</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[论试试看能不能在网上搜到我的博客这件事]]></title>
-        <id>https://yzlcpgl.github.io/post/lun-shi-shi-kan-neng-bu-neng-zai-wang-shang-sou-dao-wo-de-bo-ke-zhe-jian-shi/</id>
-        <link href="https://yzlcpgl.github.io/post/lun-shi-shi-kan-neng-bu-neng-zai-wang-shang-sou-dao-wo-de-bo-ke-zhe-jian-shi/">
-        </link>
-        <updated>2020-04-21T05:57:36.000Z</updated>
-        <content type="html"><![CDATA[<p>啦啦啦<br>
-论试试看能不能在网上搜到我的博客这件事<br>
-论试试看能不能在网上搜到我的博客这件事<br>
-论试试看能不能在网上搜到我的博客这件事<br>
-论试试看能不能在网上搜到我的博客这件事<br>
-论试试看能不能在网上搜到我的博客这件事</p>
-<pre><code></code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试3]]></title>
-        <id>https://yzlcpgl.github.io/post/ce-shi-3/</id>
-        <link href="https://yzlcpgl.github.io/post/ce-shi-3/">
-        </link>
-        <updated>2020-04-21T05:49:27.000Z</updated>
-        <content type="html"><![CDATA[<p>emmmmmm<br>
-难过.jpg</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试2]]></title>
-        <id>https://yzlcpgl.github.io/post/ce-shi-2/</id>
-        <link href="https://yzlcpgl.github.io/post/ce-shi-2/">
-        </link>
-        <updated>2020-04-21T05:37:57.000Z</updated>
-        <content type="html"><![CDATA[<p>##测试~~~~~~~~<br>
-<img src="https://yzlcpgl.github.io/post-images/1587447494594.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>链表 | BLOG</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://yzlcpgl.github.io/favicon.ico?v=1587996195995">
+<link rel="stylesheet" href="https://yzlcpgl.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="链表建立
+使用结构体
+
+struct node{
+    int num;
+    struct node* next;
+}
+
+格式如上，struct+名字+内容+可选加别名
+链表空间分配
+如下，是对单个节点分配链表空间
+ 
+  p1=p2..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://yzlcpgl.github.io">
+        <img src="https://yzlcpgl.github.io/images/avatar.png?v=1587996195995" class="site-logo">
+        <h1 class="site-title">BLOG</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://jiyuyang.cool" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://jiyuyang.cool/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://jiyuyang.cool/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://jiyuyang.cool/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://yzlcpgl.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">链表</h2>
+            <div class="post-date">2020-04-27</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="链表建立">链表建立</h3>
+<p>使用结构体</p>
+<pre>
+struct node{
+    int num;
+    struct node* next;
+}
+</pre>
+<p>格式如上，struct+名字+内容+可选加别名</p>
+<h3 id="链表空间分配">链表空间分配</h3>
+<p>如下，是对单个节点分配链表空间</p>
+ <pre>
+  p1=p2=(struct node*)malloc(sizeof(struct node));
+</pre>
+<h3 id="常用链表定义">常用链表定义</h3>
+<p>在主函数中：</p>
+  <pre>
+  struct node * head,* p,* q;//定义必须的指针；
+  head=NULL;//给头节点赋值为空
+  </pre>
+<p>定义之后，在函数中开始赋值</p>
+<pre>
+p=(struct node *)malloc(sizeof(struct node));
+</pre>
+<p>完整的链表创建则如下所示：</p>
+<pre>
+struct node * head,* p,* q;//先定义必须的指针；
+	head=NULL;//让头指针指向NULL，不然后面判断head没法进行。
+	while(scanf("%d->",&a))//输入的同时也判断输入的内容，如果是"1->"scanf返回的是1，也是true，当输入'.'的时候，scanf返回的是0，false。被留在缓冲区
+	{
+		p=(struct node *)malloc(sizeof(struct node));
+		p->num=a;
+		p->next=NULL;
+		if(head==NULL)
+		{
+			head=p;//第一次时候，将链表的结点地址传给head
+		}
+		else
+		{
+			q->next=p;//第二次以及以上母结点的下一个结点为p
+		}
+		q=p;//改选中的结点为下一个结点
+	}
+</pre>
+<h3 id="项目实战合并两个单链表">项目实战：合并两个单链表</h3>
+<pre name = "code_0" >
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+	int num;
+	struct node * next;
+};
+struct node * exchange(struct node *p, struct node *p1);
+int main()
+{
+	struct node * head, *p, *q= nullptr, *t, *head1, *p1, *q1= nullptr;
+	int a, b;
+	head = NULL;
+	head1 = NULL;
+	while (scanf("%d->",&a))
+	{
+		p = (struct node *)malloc(sizeof(struct node));
+		p->num = a;
+		p->next = NULL;
+		if (head == NULL)
+		{
+			head = p;
+		}
+		else
+		{
+			q->next = p;
+		}
+		q = p;
+	}
+	getchar();
+	while (scanf("%d->", &b))
+	{
+		p1 = (struct node *)malloc(sizeof(struct node));
+		p1->num = b;
+		p1->next = NULL;
+		if (head1 == NULL)
+		{
+			head1 = p1;
+		}
+		else
+		{
+			q1->next = p1;
+		}
+		q1 = p1;
+	}
+	t = exchange(head, head1);
+	while (t->next != NULL)
+	{
+		printf("%d->", t->num);
+		t = t->next;
+	}
+	printf("%d->NULL", t->num);
+	return 0;
+}
+struct node * exchange(struct node *head, struct node *head1)
+{
+	if (head == NULL || head1 == NULL)
+	{
+		return head == NULL ? head1 : head;
+	}
+	struct node *head3 = NULL;
+	if (head->num <= head1->num)
+	{
+		head3 = head;
+		head3->next = exchange(head->next, head1);
+	}
+	else
+	{
+		head3 = head1;
+		head3->next = exchange(head, head1->next);
+	}
+	return head3;
+}
+</pre>
+<p><i>ntf(&quot;%d-&gt;NULL&quot;,t-&gt;num);<br>
+return 0;<br>
+}<br>
+struct node * exchange(struct node *head,struct node *head1)<br>
+{<br>
+if(head<mark>NULL||head1</mark>NULL)<br>
+{<br>
+return head==NULL?head1:head;<br>
+}<br>
+struct node *head3=NULL;<br>
+if(head-&gt;num&lt;=head1-&gt;num)<br>
+{<br>
+head3=head;<br>
+head3-&gt;next=exchange(head-&gt;next,head1);<br>
+}<br>
+else<br>
+{<br>
+head3=head1;<br>
+head3-&gt;next=exchange(head,head1-&gt;next);<br>
+}<br>
+return head3;<br>
+}</p>
+<p><i>©代码源自CSDN[长高]原文链接：https://blog.csdn.net/weixin_45677047/java/article/details/105457936</i></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://yzlcpgl.github.io/post/sui-bi-xiang-lu-yi-pian-wen-zhang-a/">
+                  <h3 class="post-title">
+                    随笔（想撸一篇文章啊）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
