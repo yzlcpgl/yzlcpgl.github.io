@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yzlcpgl.github.io</id>
     <title>BLOG</title>
-    <updated>2020-04-27T17:22:52.637Z</updated>
+    <updated>2020-06-25T08:39:41.170Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yzlcpgl.github.io"/>
     <link rel="self" href="https://yzlcpgl.github.io/atom.xml"/>
@@ -11,576 +11,223 @@
     <icon>https://yzlcpgl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BLOG</rights>
     <entry>
-        <title type="html"><![CDATA[流Ⅱ]]></title>
-        <id>https://yzlcpgl.github.io/post/liu-ii/</id>
-        <link href="https://yzlcpgl.github.io/post/liu-ii/">
+        <title type="html"><![CDATA[新的想法]]></title>
+        <id>https://yzlcpgl.github.io/post/xin-de-xiang-fa/</id>
+        <link href="https://yzlcpgl.github.io/post/xin-de-xiang-fa/">
         </link>
-        <updated>2020-04-27T15:57:04.000Z</updated>
-        <content type="html"><![CDATA[<p>两种处理流的方式，一为生成一个数据处理一个，二为处理流整体</p>
-<pre>
-//递归求和
-(define (add-stream s1 s2)
-    (cond ( (empty-stream? s1) s2 )//如果s1为空，相加结果为s2
-              ((empty-stream? s2) s1 )//如果2空，相加结果为1
-              (else
-              (cons-stream)//构建新流
-              (+ (head s1) (head s2) )//对流1和流2的头部求和
-              (add-streams (tail s1)//再对流1与流2的尾部重复上述操作
-              (tail s2)))))
-</pre>
-<pre>
-//常数c，流s，乘法
-(define (scale-stream c a)
-(map-stream (lambda (x)(* x c)) s ))
-</pre>
-<h3 id="一次性处理流">一次性处理流</h3>
-<pre>
-//表示无穷1的流
-(define ones ( cons-stream 1 ones) )
-</pre>
-<pre>
-//整数流
-(define integers  
- (cons-stream 1 //第一个数字是1
-                    (add-stream integers ones))) //随后，每次为流的第一个元素加1；又因为新的流在不断产生，整数流就诞生了【神奇的过程，因为数据真的像是在流动】
-</pre>
-<p><b>它的成功重点在于延时求值  (cons-stream 1 ones)==(cons 1 (delay ones))</b><br>
-<img src="https://yzlcpgl.github.io/post-images/1588004131910.JPG" alt="" loading="lazy"><br>
-上面的例子将1改变，就可以变成信号处理的模型</p>
-<pre>
-(define (integral s initial-value dt)
-(define int
-(cons-stream initial-value //int是intvalue开始的流，方便后面引用自己
-(add-streams (scale-stream dt s)
-int )))
-int)
-</pre>
-<h3 id="斐波那契数列">斐波那契数列</h3>
-<pre>
-[惰性求值]
-(define fibs
-(cons-stream 0
-(cons-stream 1
-(add-streams fibs (tail fibs)))))
-</pre>
-<p>演示过程：<br>
-<img src="https://yzlcpgl.github.io/post-images/1588006632530.png" alt="" loading="lazy"></p>
+        <updated>2020-06-25T08:34:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="人是可以被雕琢的">人是可以被雕琢的</h1>
+<p>颓废太久了，以至于蜷缩在角落里，忘记与外界交互了。<br>
+1、形象展示<br>
+外形展示+内涵展示<br>
+2、外界交互<br>
+获取金钱：写小说、文稿<br>
+获取证书：竞赛、司考<br>
+获取情绪：如果下意识的与人交流有问题，那就按照自己性格，刻画一个可以与人交流的形象。写一个行动指南出来<br>
+3、<br>
+先脚下，再远方</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[绪论]]></title>
-        <id>https://yzlcpgl.github.io/post/xu-lun/</id>
-        <link href="https://yzlcpgl.github.io/post/xu-lun/">
+        <title type="html"><![CDATA[追求]]></title>
+        <id>https://yzlcpgl.github.io/post/zhui-qiu/</id>
+        <link href="https://yzlcpgl.github.io/post/zhui-qiu/">
         </link>
-        <updated>2020-04-27T14:11:24.000Z</updated>
-        <content type="html"><![CDATA[<p>宗法制度在西周定型<br>
-近代社会史是一个被政治化的概念，因为它与1840年近代史的开端这样的历史分期相连<br>
-政治意识形态不一定是历史的全貌</p>
+        <updated>2020-06-19T16:16:35.000Z</updated>
+        <content type="html"><![CDATA[<p>一直在想人生追求。<br>
+现在想想，追求什么？<br>
+追求的是美啊！！！<br>
+美才是让人活下去的幸福感来源！<br>
+肢体的优美（如罗马雕塑、希腊神明）、秩序的优美（如计算机的构造，程序的构造）、语言的优美、存粹情绪的优美，某件作品的完美......<br>
+这些简直是我活下去的养料<br>
+NICE!!!从今天起，为追求美而生。</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[焦急的每日任务]]></title>
-        <id>https://yzlcpgl.github.io/post/jiao-ji-de-mei-ri-ren-wu/</id>
-        <link href="https://yzlcpgl.github.io/post/jiao-ji-de-mei-ri-ren-wu/">
+        <title type="html"><![CDATA[石块]]></title>
+        <id>https://yzlcpgl.github.io/post/shi-kuai/</id>
+        <link href="https://yzlcpgl.github.io/post/shi-kuai/">
         </link>
-        <updated>2020-04-27T13:44:21.000Z</updated>
-        <content type="html"><![CDATA[<lu>
-<li>50个单词</li>
-<li>上课，并整理笔记及做作业（手写/博客）</li>
-<li>C++语言/汇编语言/linux系统，轮流，2h</li>
-<li>计蒜客3道题，彻底弄明白，并写出博客</li>
-<li>单片机1h</li>
-<li>高数2h</li>
-<li>看书一本，古代系列</li>
-</lu>
-<figure data-type="image" tabindex="1"><img src="https://yzlcpgl.github.io/post-images/1587996156176.JPG" alt="" loading="lazy"></figure>
+        <updated>2020-06-16T16:59:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>我想为我的情感造一座玫瑰园，那里定格着出现过的美好，成长着我的希冀。<br>
+那么，我想为我的灵魂堆砌一座堡垒，它将随着我扎根在这世界的每一个角落。<br>
+有一句话是“见天地、见众生、见自己”我姑且以自己的喜好，将见视为jian了。每次有新的感触时都会想到这句话。<br>
+现在是2020年06月17日，01点03分。我在这几天，思考，什么是自我。得到的答案便是，我现在还没有自我，我还太空洞，漫无目的地生存着。（虽然有了玫瑰园这样的精神状态小目标，但我更喜欢现实生活中的拥有）<br>
+之前和萝卜聊过，我没有对计算机彻底厌恶是因为一门课程，《计算机程序的构造与解释》。这里面，老师将机器与世界映射起来，告诉我，程序是对现实的描述（大意）。<br>
+我对现实社会充满了好奇与热情。也许是上帝视角了，但我喜好看群体的变化，看时代的洪流如何奔涌而来潇洒而去，我喜欢与世界获得联系，甚至，我希望我拥有由我产生的，对整个世界的一个解释，社会这一小部分也好，整个世界的本质也好。<br>
+我终究还是一个普普通通的人，甚至是一个体力不太行的人，我只有短短的几十年了，拿时间换取一点点“悟”。但只要向着“能得到关于世界（或其中一部分）的一点点解释”目标前进，哪怕没有收获，只是走着，就很满足了，像痒沿着脖子涌上来那样的羞涩与满足。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我想为我的情感造一座玫瑰园，那里定格着出现过的美好，成长着我的希冀。<br>
+那么，我想为我的灵魂堆砌一座堡垒，它将随着我扎根在这世界的每一个角落。<br>
+有一句话是“见天地、见众生、见自己”我姑且以自己的喜好，将见视为jian了。每次有新的感触时都会想到这句话。<br>
+现在是2020年06月17日，01点03分。我在这几天，思考，什么是自我。得到的答案便是，我现在还没有自我，我还太空洞，漫无目的地生存着。（虽然有了玫瑰园这样的精神状态小目标，但我更喜欢现实生活中的拥有）<br>
+之前和萝卜聊过，我没有对计算机彻底厌恶是因为一门课程，《计算机程序的构造与解释》。这里面，老师将机器与世界映射起来，告诉我，程序是对现实的描述（大意）。<br>
+我对现实社会充满了好奇与热情。也许是上帝视角了，但我喜好看群体的变化，看时代的洪流如何奔涌而来潇洒而去，我喜欢与世界获得联系，甚至，我希望我拥有由我产生的，对整个世界的一个解释，社会这一小部分也好，整个世界的本质也好。<br>
+我终究还是一个普普通通的人，甚至是一个体力不太行的人，我只有短短的几十年了，拿时间换取一点点“悟”。但只要向着“能得到关于世界（或其中一部分）的一点点解释”目标前进，哪怕没有收获，只是走着，就很满足了，像痒沿着脖子涌上来那样的羞涩与满足。</p>
+<!-- more -->
+<p>我如果抱着，“更了解这个世界一点点”的目标，就必定不能脱离现实了。我的了解不仅仅存在水墨茶香的古籍里，更是人与人厮杀里，永远不变的山河里。<br>
+见天地、见众生<br>
+所以，短期内下一个目标：<br>
+每一件事认真完成地完成大学课程；<br>
+完成竞赛（为研究生复试铺路）；<br>
+通过法考；<br>
+彻底了解计算机；<br>
+每周找一个地方玩，并观察生活（有历史渊源的先查找再去实地）；<br>
+多看书，把想法写出来。</p>
+<p>像火一样热烈地活下去吧</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[链表]]></title>
-        <id>https://yzlcpgl.github.io/post/lian-biao/</id>
-        <link href="https://yzlcpgl.github.io/post/lian-biao/">
+        <title type="html"><![CDATA[玫瑰园]]></title>
+        <id>https://yzlcpgl.github.io/post/mei-gui-yuan/</id>
+        <link href="https://yzlcpgl.github.io/post/mei-gui-yuan/">
         </link>
-        <updated>2020-04-27T13:23:29.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="链表建立">链表建立</h3>
-<p>使用结构体</p>
-<pre>
-struct node{
-    int num;
-    struct node* next;
-}
-</pre>
-<p>格式如上，struct+名字+内容+可选加别名</p>
-<h3 id="链表空间分配">链表空间分配</h3>
-<p>如下，是对单个节点分配链表空间</p>
- <pre>
-  p1=p2=(struct node*)malloc(sizeof(struct node));
-</pre>
-<h3 id="常用链表定义">常用链表定义</h3>
-<p>在主函数中：</p>
-  <pre>
-  struct node * head,* p,* q;//定义必须的指针；
-  head=NULL;//给头节点赋值为空
-  </pre>
-<p>定义之后，在函数中开始赋值</p>
-<pre>
-p=(struct node *)malloc(sizeof(struct node));
-</pre>
-<p>完整的链表创建则如下所示：</p>
-<pre>
-struct node * head,* p,* q;//先定义必须的指针；
-	head=NULL;//让头指针指向NULL，不然后面判断head没法进行。
-	while(scanf("%d->",&a))//输入的同时也判断输入的内容，如果是"1->"scanf返回的是1，也是true，当输入'.'的时候，scanf返回的是0，false。被留在缓冲区
-	{
-		p=(struct node *)malloc(sizeof(struct node));
-		p->num=a;
-		p->next=NULL;
-		if(head==NULL)
-		{
-			head=p;//第一次时候，将链表的结点地址传给head
-		}
-		else
-		{
-			q->next=p;//第二次以及以上母结点的下一个结点为p
-		}
-		q=p;//改选中的结点为下一个结点
-	}
-</pre>
-<h3 id="项目实战合并两个单链表">项目实战：合并两个单链表</h3>
-<pre name = "code_0" >
-#include<stdio.h>
-#include<stdlib.h>
-struct node
-{
-	int num;
-	struct node * next;
-};
-struct node * exchange(struct node *p, struct node *p1);
-int main()
-{
-	struct node * head, *p, *q= nullptr, *t, *head1, *p1, *q1= nullptr;
-	int a, b;
-	head = NULL;
-	head1 = NULL;
-	while (scanf("%d->",&a))
-	{
-		p = (struct node *)malloc(sizeof(struct node));
-		p->num = a;
-		p->next = NULL;
-		if (head == NULL)
-		{
-			head = p;
-		}
-		else
-		{
-			q->next = p;
-		}
-		q = p;
-	}
-	getchar();
-	while (scanf("%d->", &b))
-	{
-		p1 = (struct node *)malloc(sizeof(struct node));
-		p1->num = b;
-		p1->next = NULL;
-		if (head1 == NULL)
-		{
-			head1 = p1;
-		}
-		else
-		{
-			q1->next = p1;
-		}
-		q1 = p1;
-	}
-	t = exchange(head, head1);
-	while (t->next != NULL)
-	{
-		printf("%d->", t->num);
-		t = t->next;
-	}
-	printf("%d->NULL", t->num);
-	return 0;
-}
-struct node * exchange(struct node *head, struct node *head1)
-{
-	if (head == NULL || head1 == NULL)
-	{
-		return head == NULL ? head1 : head;
-	}
-	struct node *head3 = NULL;
-	if (head->num <= head1->num)
-	{
-		head3 = head;
-		head3->next = exchange(head->next, head1);
-	}
-	else
-	{
-		head3 = head1;
-		head3->next = exchange(head, head1->next);
-	}
-	return head3;
-}
-</pre>
-<p><i>ntf(&quot;%d-&gt;NULL&quot;,t-&gt;num);<br>
-return 0;<br>
-}<br>
-struct node * exchange(struct node *head,struct node *head1)<br>
-{<br>
-if(head<mark>NULL||head1</mark>NULL)<br>
-{<br>
-return head==NULL?head1:head;<br>
-}<br>
-struct node *head3=NULL;<br>
-if(head-&gt;num&lt;=head1-&gt;num)<br>
-{<br>
-head3=head;<br>
-head3-&gt;next=exchange(head-&gt;next,head1);<br>
-}<br>
-else<br>
-{<br>
-head3=head1;<br>
-head3-&gt;next=exchange(head,head1-&gt;next);<br>
-}<br>
-return head3;<br>
-}</p>
-<p><i>©代码源自CSDN[长高]原文链接：https://blog.csdn.net/weixin_45677047/java/article/details/105457936</i></p>
+        <updated>2020-06-07T18:12:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>如果人的内心世界是一片空白，由这个人去涂抹创造的话...<br>
+在我小时候，世界只是一片灰色，阳光在那边，我独自行走，只是前进，不在乎离我三米之外的光影斑驳世界是如何。萝卜和悦出现了，她们先出现在我的面前，好奇我为什么一个人行走，然后叽叽喳喳地跟着我。像是画笔一样，为我的天空、土地着色。<br>
+到了高中，陈像太阳一样出现了。她是另一群生物的太阳。我站在这边，她在那边。我好奇光的温度，又不敢靠近，迷迷糊糊，试图触摸阳光。卢像一棵树，没有活泛地上下跳动，只是静静地树在一旁。蓉像小狐狸，到处乱窜。<br>
+那些男生，和我仿佛是两个世界的人。他们成群结队，呼啸而来，呼啸而去。我想成为其中的一部分，不是玩耍在其中的一部分，是可以毫无违和感地站在一旁晒着太阳，眯着眼睛，听他们的吵闹声。<br>
+上了大学，我遇见了侯。侯像是山间精怪，胆小怕事，隐藏在草丛，灌木之间，偶尔探出头来。但却在我嚎啕大哭时出来为我讲各种它听说过的事情。何像某块没有存在感的厚重岩石，却在思考宇宙的秘密。<br>
+后来，我发现。画笔会没有颜色，阳光会怯懦被乌云遮住，树会失去向上生长的气力，狐狸无趣时便跑到一边，精怪只听说过传说却迷迷糊糊不知道自己该经历什么，石头实在太远。<br>
+现在想来，我确实很不是东西了，总想着自己呆立着，让它们围绕到我身边，等它们来到，却喜新厌旧埋怨它们不是完美无缺。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>如果人的内心世界是一片空白，由这个人去涂抹创造的话...<br>
+在我小时候，世界只是一片灰色，阳光在那边，我独自行走，只是前进，不在乎离我三米之外的光影斑驳世界是如何。萝卜和悦出现了，她们先出现在我的面前，好奇我为什么一个人行走，然后叽叽喳喳地跟着我。像是画笔一样，为我的天空、土地着色。<br>
+到了高中，陈像太阳一样出现了。她是另一群生物的太阳。我站在这边，她在那边。我好奇光的温度，又不敢靠近，迷迷糊糊，试图触摸阳光。卢像一棵树，没有活泛地上下跳动，只是静静地树在一旁。蓉像小狐狸，到处乱窜。<br>
+那些男生，和我仿佛是两个世界的人。他们成群结队，呼啸而来，呼啸而去。我想成为其中的一部分，不是玩耍在其中的一部分，是可以毫无违和感地站在一旁晒着太阳，眯着眼睛，听他们的吵闹声。<br>
+上了大学，我遇见了侯。侯像是山间精怪，胆小怕事，隐藏在草丛，灌木之间，偶尔探出头来。但却在我嚎啕大哭时出来为我讲各种它听说过的事情。何像某块没有存在感的厚重岩石，却在思考宇宙的秘密。<br>
+后来，我发现。画笔会没有颜色，阳光会怯懦被乌云遮住，树会失去向上生长的气力，狐狸无趣时便跑到一边，精怪只听说过传说却迷迷糊糊不知道自己该经历什么，石头实在太远。<br>
+现在想来，我确实很不是东西了，总想着自己呆立着，让它们围绕到我身边，等它们来到，却喜新厌旧埋怨它们不是完美无缺。</p>
+<!-- more -->
+<p>我应该种下属于自己的玫瑰了。<br>
+不光如此，万物生灵都是如此可爱，我要耐心地让它们接纳我，愿意来到我的世界。<br>
+而我的画笔、阳光、树木、狐狸、精怪都该护着。</p>
+<!-- more -->
+<p>我希望自己的世界，充满生机。不仅仅是生灵的一时好奇，更愿它们开心地扎根于此。</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[随笔（想撸一篇文章啊）]]></title>
-        <id>https://yzlcpgl.github.io/post/sui-bi-xiang-lu-yi-pian-wen-zhang-a/</id>
-        <link href="https://yzlcpgl.github.io/post/sui-bi-xiang-lu-yi-pian-wen-zhang-a/">
+        <title type="html"><![CDATA[【小凳】]]></title>
+        <id>https://yzlcpgl.github.io/post/xiao-deng/</id>
+        <link href="https://yzlcpgl.github.io/post/xiao-deng/">
         </link>
-        <updated>2020-04-24T16:20:22.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="最近的想法真的是一天一变">最近的想法真的是一天一变</h3>
-<p>想了想，我是不能单活在现实里的。<br>
-倘若要活在现实中，单活在油盐酱醋这样的实物里，我会像脱离了水的鱼一样，枯死在沙砾上。<br>
-我需要幻想，需要像梦境一样的东西。<br>
-那个梦境，是我避难的地方，更是我活下去的水。<br>
-侯说，越长大，越觉得“每个人都是一座孤岛”说得很对。<br>
-我也这样觉得。但，孤岛不是孤立无援，是每个人独属于自己的生存之所。<br>
-在那个孤岛里，人人都做着梦。都在以自己的方式，将灵魂卸下，栖息在那里。<br>
-当他对孤岛毫无在意时，孤岛就如同一座普通的岛屿，他每日进进出出，只记得，约莫有些花啊草啊，沙滩岩石啊，好像是个没什么特色的孤岛。<br>
-有的人，不相信外界，不相信孤岛，只战战兢兢地抢夺每一丝的利，放任孤岛杂草丛生，腐臭的恶浪拍打礁石。<br>
-但孤岛只是一个岛。只有主人的灵魂偶尔在这里栖息。人们生活在另一个维度。</p>
-<p>孤岛，存在于每个人内心认为它存在之时。</p>
-<p>孤岛，不是理想与梦想，不是幻想与绝望。它是流，存储心流的地方。</p>
-<p>昂，我是要与外界交互的。我要说话，说出对世界，对外界的浅薄之见。用小小的物品，让我对世界的理解蕴含其中。</p>
-<p>代码啊，突然感觉很好学。是一项伟大的工具。</p>
+        <updated>2020-06-01T06:51:35.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="劳动与生活">劳动与生活</h2>
+<h2 id="一劳动换取生活资料">（一）劳动换取生活资料</h2>
+<h3 id="维持高效率的工作状态">维持高效率的工作状态</h3>
+<p>高效率的解释：心态轻松，精神饱满，良好的生活环境，可实现的生活目标</p>
+<h3 id="维持高效率劳动的物质">维持高效率劳动的物质：</h3>
+<p>1、衣食住行（舒适美观的衣物、日常食品摄入偶尔美食享受、整洁舒适的环境房屋、自行车小轿车高铁飞机出行舒畅）<br>
+2、工作环境（正常的同事相处，工作及成果被尊重，工作场所正常）<br>
+3、希望、自由、变化（有职业计划与进取的希望、一定范围内自由工作的权力、工作内容有一定挑战性不呆板）</p>
+<h2 id="二生活">（二）生活</h2>
+<h3 id="参考马洛斯金字塔">参考马洛斯金字塔</h3>
+<p>1、生理需要（呼吸、食物、水、性、睡眠、内分泌平衡）<br>
+2、安全需要（人身安全、健康保障、资源保障、财产受保护、道德保障）<br>
+3、社会需要（友情、爱情、性亲密）<br>
+4、尊重需要（自尊、信心、尊重他人、受他人尊重）<br>
+5、自我实现（道德、创造力、自觉性、解决问题的能力、接受现实的能力）</p>
+<h3 id="对应到现实生活中的个人规划">对应到现实生活中的个人规划</h3>
+<p>1、友情（年少时困难时能有朋友救济我给我个落脚点，得意时可以一起自驾游谈天说地；年老时可以介绍家人一起聊天吃饭）<br>
+2、亲情（温暖，和谐，没有争吵的氛围，可以一起做一件事情，或者出游）<br>
+3、爱情（曾经想找合作伙伴，尝试了一下，不行，需要亲密关系）<br>
+4、个人窝（可以按自己想法来，一定要买一套自己的房子，不是用来家庭生活，而是为了自己的需求。用来安放工具台、乐高、模型、书籍，还有年少时的干脆面）<br>
+5、娱乐规划（个人爱好在上述小屋里实现，不受拘束，想到什么玩什么）<br>
+6、自我实现（确定以计算机类技术作为此生工作发展的目标；希望在三十五年后，成为该领域有一定重量的人物；终极目标可为初步通晓某具体领域，甚至为领域发展作出贡献）<br>
+7、边界拓展（不受拘束，以了解更真实的世界为基准；包括法律、医学、社会史等等领域；而现实中，则是各地实际探索。不要拘泥于书本）<br>
+8、放松（各种游戏、电影、城市娱乐设施）<br>
+9、创作（编写一个优秀的剧本、塑造一个丰满的人格/社会环境，甚至是构想出一个社会建筑群）</p>
+<h2 id="三目标实现需要的努力">（三）目标实现需要的努力</h2>
+<h3 id="要求">要求</h3>
+<p>1、实际没什么需要特别努力的。平时不浪费时间，把握好偶尔被刷新出来的节点就行<br>
+2、不需要精准卡点。虽然我外在选择看着都很理性，实际都是在追求“追求极致”时的快感。还是随性+感性的。像社树一样，自在长大就行。<br>
+3、再者，已经接受自己是个普通人了，连我的偷懒都是我的一部分，做好自己即可。</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[搞了个毛线啊]]></title>
-        <id>https://yzlcpgl.github.io/post/gao-liao-ge-mao-xian-a/</id>
-        <link href="https://yzlcpgl.github.io/post/gao-liao-ge-mao-xian-a/">
+        <title type="html"><![CDATA[生活]]></title>
+        <id>https://yzlcpgl.github.io/post/sheng-huo/</id>
+        <link href="https://yzlcpgl.github.io/post/sheng-huo/">
         </link>
-        <updated>2020-04-23T08:42:57.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="最近受大三考研找工作的朋友影响突然发现自己的大学时光竟然浪费了这么多">最近受大三考研找工作的朋友影响，突然发现，自己的大学时光竟然浪费了这么多</h3>
-<h3 id="没有全心投入到备战一次考试没有享受淋漓尽致的大学生活">没有全心投入到备战一次考试，没有享受淋漓尽致的大学生活</h3>
-<h3 id="仔细想想康康我大学做了些什么">仔细想想，康康我大学做了些什么</h3>
-<p>大一上：参加心理社团，当班干部，参加社团，参加实验室学html<br>
-大一下：观看法理学，参加支教活动<br>
-大二上：玩纸雕，参加创青春，参加硬件实验室<br>
-大二下：搞快点啊！！！！这学期都快没了，浪毛线啊！！！！</p>
-<p>！！！！！啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+        <updated>2020-05-25T17:16:13.000Z</updated>
+        <content type="html"><![CDATA[<p>找到维持效率的必需品，而非生存的必需品。<br>
+<b>我希望当我垂老之时，回顾人生，此生，我是高效率、充实有活力地度过的。</b><br>
+目标：<br>
+英语、法考、竞赛、考研<br>
+日常任务：<br>
+1、100个单词<br>
+2、法考2章节思维导图<br>
+3、竞赛内容学习2h<br>
+4、完成日常学业</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[matlab数值计算]]></title>
-        <id>https://yzlcpgl.github.io/post/matlab-shu-zhi-ji-suan/</id>
-        <link href="https://yzlcpgl.github.io/post/matlab-shu-zhi-ji-suan/">
+        <title type="html"><![CDATA[胡思乱想1]]></title>
+        <id>https://yzlcpgl.github.io/post/hu-si-luan-xiang-1/</id>
+        <link href="https://yzlcpgl.github.io/post/hu-si-luan-xiang-1/">
         </link>
-        <updated>2020-04-22T06:58:49.000Z</updated>
-        <content type="html"><![CDATA[<p>一、数值微分和数值积分<br>
-（1）数值差分与差商<br>
-向前差分：<br>
-向后差分：<br>
-中心差分:<br>
-（2）数值微分的实现<br>
-向前差分：diff:<br>
-dx=diff(x)向量x的向前差分<br>
-dx=diff(x,n)向量x的n阶向前差分<br>
-dx=diff(A,n,dim)矩阵A的n阶差分<br>
-例1  设f(x)=sinx，在[0，2π]范围内随机采样，计算f'(x)的近似值，并与理论值f'(x)=cosx 进行比较。</p>
-<blockquote>
-<blockquote>
-<p>x=[0,sort(2<em>pi</em>rand(1,5000)),2*pi];<br>
-y=sin(x);<br>
-f1=diff(y)./diff(x);<br>
-f2=cos(x(1:end-1));<br>
-plot(x(1:end-1),f1,x(1:end-1),f2);<br>
-d=norm(f1-f2)<br>
-（3）数值积分的实现<br>
-基于自适应的辛普森方法 [l,n]=quad(filename,a,b,tol,trace)<br>
-基于自适应的Gauss-Lobatto方法 [i,err]=quadgk(filename,a,b)<br>
-例2  分别用quad函数和quadl函数求定积分的近似值，并在相同的积分精度下，比较被积函数的调用次数。</p>
-</blockquote>
-<blockquote>
-<p>format long<br>
-f=@(x) 4./(1+x.^2);<br>
-[I,n]=quad(f,0,1,1e-8)<br>
-[I,n]=quadl(f,0,1,1e-8)<br>
-(atan(1)-atan(0))*4<br>
-format short<br>
-例3 求定积分。<br>
-被积函数文件fe.m：<br>
-function f=fe(x)<br>
-f=1./(x.*sqrt(1-log(x).^2));</p>
-</blockquote>
-<blockquote>
-<p>I=integral(@fe,1,exp(1))<br>
-例4  求定积分。<br>
-被积函数文件fsx.m：<br>
-function f=fsx(x)<br>
-f=sin(1./x)./x.^2;</p>
-</blockquote>
-<blockquote>
-<p>I=quadgk(@fsx,2/pi,+Inf)<br>
-例5  设x=1:6，y=[6,8,11,7,5,2],用trapz函数计算定积分。</p>
-</blockquote>
-<blockquote>
-<p>x=1:6;<br>
-y=[6,8,11,7,5,2];<br>
-plot(x,y,'-ko');<br>
-grid on<br>
-axis([1,6,0,11]);<br>
-I1=trapz(x,y)<br>
-I2=sum(diff(x).*(y(1:end-1)+y(2:end))/2)<br>
-例6  分别求二重积分和三重积分。</p>
-</blockquote>
-<blockquote>
-<p>f1=@(x,y) exp(-x.<sup>2/2).*sin(x.</sup>2+y);<br>
-I1=quad2d(f1,-2,2,-1,1)<br>
-f2=@(x,y,z) 4*x.*z.*exp(-z.*z.*y-x.*x);<br>
-I2=integral3(f2,0,pi,0,pi,0,1)<br>
-二、线性方程求解<br>
-直接法、迭代法<br>
-1、直接法<br>
-高斯消去法<br>
-列主元消去法<br>
-矩阵的三角分解法<br>
-（1）利用左除运算符直接求解<br>
-Ax=B x=A\B    x(;,i)=A\b(:,i),i=1,2,,,<br>
-例1  用左除运算符求解下列线性方程组。</p>
-</blockquote>
-<blockquote>
-<p>A=[2,1,-5,1;1,-5,0,7;0,2,1,-1;1,6,-1,-4];<br>
-b=[13,-9,6,0]';<br>
-x=A\b<br>
-(2)矩阵分解法<br>
-LU\QR\Choles法<br>
-LU：将矩阵分解为一个上三角，一个下三角<br>
-设A=LU得到LUx=b,Ly=b,Ux=y<br>
-LU分解函数：<br>
-[L,U]=lu(A),A是方阵,U上三角,L变换形式的下三角<br>
-[L,U,P],U上三角，L下三角，P置换矩阵，A方阵<br>
-例2  用LU分解求解例1中的线性方程组。</p>
-</blockquote>
-<blockquote>
-<p>A=[2,1,-5,1;1,-5,0,7;0,2,1,-1;1,6,-1,-4];<br>
-b=[13,-9,6,0]';<br>
-[L,U]=lu(A);<br>
-x=U(L\b)<br>
-2、迭代法<br>
-雅可比迭代法与高斯赛德尔迭代法<br>
-（1）雅可比迭代法的函数文件jacobi.m：<br>
-function [y,n]=jacobi(A,b,x0,ep)<br>
-D=diag(diag(A))<br>
-L=-tril(A,-1);<br>
-U=-triu(A,1);<br>
-B=D(L+U);<br>
-f=D\b;<br>
-y=B<em>x0+f;<br>
-n=1;<br>
-while norm(y-x0)&gt;=ep<br>
-x0=y；<br>
-y=B</em>x0+f;<br>
-n=n+1；<br>
-end<br>
-（2）高斯-赛德尔函数（可能不收敛）<br>
-Gauss-Serdel迭代法的函数文件gauseidel.m：<br>
-function [y,n]=gauseidel(A,b,x0,ep)<br>
-D=diag(diag(A));<br>
-L=-tril(A,-1);<br>
-U=-triu(A,1);<br>
-B=(D-L)\U;<br>
-f=(D-L)\b;<br>
-y=B<em>x0+f;<br>
-n=1;<br>
-while norm(y-x0)&gt;=ep<br>
-x0=y;<br>
-y=B</em>x0+f;<br>
-n=n+1;<br>
-end<br>
-例3  分别用雅可比迭代法和高斯-赛德尔迭代法求解线性方程组。设迭代初值为0，迭代精度为10^(-6)。</p>
-</blockquote>
-<blockquote>
-<p>A=[4,-2,-1;-2,4,3;-1,-3,3];<br>
-b=[1,5,0]';<br>
-[x,n]=jacobi(A,b,[0,0,0]',1.0e-6)<br>
-[x,n]=gauseidel(A,b,[0,0,0]',1.0e-6)<br>
-例4  分别用雅可比迭代法和高斯-赛德尔迭代法求解下列线性方程组，看是否收敛。</p>
-</blockquote>
-<blockquote>
-<p>A=[1,2,-2;1,1,1;2,2,1];<br>
-b=[9;7;6];<br>
-[x,n]=jacobi(A,b,[0;0;0],1.0e-6)<br>
-[x,n]=gauseidel(A,b,[0;0;0],1.0e-6)<br>
-三、非线性方程求解与函数极值计算<br>
-1.1单变量非线性求解<br>
-例1  求f(x)=0在x0=-5和x0=1作为迭代初值时的根。</p>
-</blockquote>
-<blockquote>
-<p>f=@(x) x-1./x+5;<br>
-x1=fzero(f,-5)<br>
-x2=fzero(f,1)<br>
-x3=fzero(f,0.1)<br>
-f=@(x) x-1./x+5;<br>
-x1=fsolve(f,-5,optimset('Display','off'))<br>
-x2=fsolve(f,1,optimset('Display','off'))<br>
-x3=fsolve(f,0.1,optimset('Display','off'))<br>
-f(x)=x^2-1=0的根<br>
-f=@(x) x.^2-1;<br>
-x=[];<br>
-x0=-0.25:0.001:0.25;<br>
-for x00=x0<br>
-x=[x,fzero(f,x00)];<br>
-end<br>
-plot(x0,x,'-o')<br>
-xlabel('初值');<br>
-ylabel('方程的根');<br>
-axis([-0.25,0.25,-1,1])<br>
-1.2<br>
-x=fsolve(filename,x0,option)<br>
-例2  求下列方程组在（1，1，1）附近的解并对结果进行验证。</p>
-</blockquote>
-<blockquote>
-<p>f=@(x) [sin(x(1))+x(2)+x(3)^2*exp(x(1)),x(1)+x(2)+x(3),x(1)*x(2)*x(3)];<br>
-f([1,1,1])<br>
-x=fsolve(f,[1,1,1],optimset('Display','off'))<br>
-f(x)<br>
-2.1极小值<br>
-无约束最优化问题：<br>
-求最小值：<br>
-一元函数：[xmin,fmin]=fminbnd(filename,x1,x2,option)option为优化参数，可以通过optimset函数设置<br>
-多元函数（基于单纯形算法）[xmin,fmin]=fminsearch(filename,x0,option)x0是向量，表示极值点的初值<br>
-多元函数（基于牛顿算法）[xmind,fmin]=fminunc(filename,x0,option)<br>
-例3  求函数f(x)在区间(-10，-1)和(1，10)上的最小值点。</p>
-</blockquote>
-<blockquote>
-<p>f=@(x) x-1./x+5;<br>
-[xmin,fmin]=fminbnd(f,-10,-1)<br>
-[xmin,fmin]=fminbnd(f,1,10)<br>
-有约束最优化问题<br>
-最小值：[xmin,fmin]=fmincon(filename,x0,A,b,Aeq,beq,Lbnd,Ubnd,NonF,option)<br>
-例4  求解有约束最优化问题。<br>
-f=@(x) 0.4*x(2)+x(1)<sup>2+x(2)</sup>2-x(1)<em>x(2)+1/30</em>x(1)^3;<br>
-x0=[0.5;0.5];<br>
-A=[-1,-0.5;-0.5,-1];<br>
-b=[-0.4;-0.5];<br>
-lb=[0;0];<br>
-option=optimset('Display','off');<br>
-[xmin,fmin]=fmincon(f,x0,A,b,[],[],lb,[],[],option)<br>
-例5  要使每周送货车的里程最小，仓库应建在xy平面的什么位置？<br>
-a=[10,30,16.667,0.555,22.2221];<br>
-b=[10,50,29,29.888,49.988];<br>
-c=[10,18,20,14,25];<br>
-f=@(x) sum(c.*sqrt((x(1)-a).<sup>2+(x(2)-b).</sup>2));<br>
-[xmin,fmin]=fminsearch(f,[15,30])<br>
-例6  在例5中，如果由于地域的限制，仓库必须建在曲线y=x^2上，则它应该建在何处？<br>
-非线性约束的函数文件funny.m：<br>
-function [c,h]=funny(x)<br>
-c=[];<br>
-h=x(2)-x(1)^2;</p>
-</blockquote>
-<blockquote>
-<p>a=[10,30,16.667,0.555,22.2221];<br>
-b=[10,50,29,29.888,49.988];<br>
-c=[10,18,20,14,25];<br>
-f=@(x) sum(c.*sqrt((x(1)-a).<sup>2+(x(2)-b).</sup>2));</p>
-</blockquote>
-</blockquote>
-<p>常微分方程数值求解<br>
-[t,y]=solver(filname,tspan,y0,option)函数filename返回一个列向量</p>
-<p>例1  求解微分方程初值问题，并与精确解进行比较。</p>
-<p>f=@(t,y) (y^2-t-2)/4/(t+1);</p>
-<p>[t,y]=ode23(f,[0,10],2);</p>
-<p>y1=sqrt(t+1)+1;</p>
-<p>plot(t,y,'b:',t,y1,'r');</p>
-<p>例2  已知一个二阶线性系统的微分方程，取a=2，绘制系统的时间响应曲线和相平面图。</p>
-<p>f=@(t,x) [-2,0;0,1]*[x(2);x(1)];</p>
-<p>[t,x]=ode45(f,[0,20],[1,0]);</p>
-<p>subplot(2,2,1);plot(t,x(:,2));</p>
-<p>subplot(2,2,2);plot(x(:,2),x(:,1));</p>
-<p>例3  假如点燃一个火柴，已知火焰球简化模型，分析λ的大小对方程求解过程的影响。</p>
-<p>lamda=0.01;</p>
-<p>f=@(t,y) y<sup>2-y</sup>3;</p>
-<p>tic;[t,y]=ode45(f,[0,2/lamda],lamda);toc</p>
-<p>disp([‘ode45计算的点数' num2str(length(t))]);</p>
-<p>lamda=1e-5;</p>
-<p>f=@(t,y) y<sup>2-y</sup>3;</p>
-<p>tic;[t,y]=ode45(f,[0,2/lamda],lamda);toc</p>
-<p>disp(['ode45计算的点数' num2str(length(t))]);</p>
-<p>lamda=1e-5;</p>
-<p>f=@(t,y) y<sup>2-y</sup>3;</p>
-<p>tic;[t,y]=ode15s(f,[0,2/lamda],lamda);toc</p>
-<p>disp(['ode15s计算的点数' num2str(length(t))]);</p>
+        <updated>2020-05-23T04:11:57.000Z</updated>
+        <content type="html"><![CDATA[<p>思来想去，还是在纠结：我应该怎样地活？<br>
+我可以说是很幸运，生活在一个和平的国度，可以有一条虽然乏味但有点保障的路子可以走。<br>
+但现在的我太焦虑了，我生活在自己见识搭建起来的围城。<br>
+我可以从书本里知道世界各地的风貌，知道星河宇宙；但我不知道离我不远的地方，人们用枣子做馅饼、糕点，用熬煮稀饭的方式蒸出米饭。我的认知只是空中楼阁，我什么都不曾拥有。<br>
+科技好像发展了很多，但我仿佛仍然处于原始社会中，我需要承担一部分工作，换取他人猎取的食物，我什么都不会。<br>
+我想独自出走，去探索猎人们没有探访过的边界。<br>
+在我十七八岁时候，我做了一个梦，梦里我们朝着一个方向迁徙，抬头是一块半球形的白色罩子，罩住了我们。那时的我，停下了脚步，任由人流从我眼前穿过。他们走得好远，好远，又好像是我自己慢慢走远。我看见自己将手掌触到幕布上，世界仿佛只剩下我一个人。<br>
+但三四年后，我又站在了人群中。<br>
+这些时光是真实？是幻梦？我只记得，体育课上，我站在人群中，抬头，看阳光穿过树叶的缝隙，风一闪而过。剩下的时间里，好像只余一具行尸。</p>
+<hr>
+十年时间够了吗？
+成为一名合格的猎人。活着走出领地。
+说不定会死在领地外100米内呢。😀
+就用十年时间，让我能出走一米吧。
+<p>我想让自己变得足够强，强到可以面对未知，而不是在已有人的经验里转圈圈，哪怕他们告诉了我哪有可口的果子。<br>
+老天保佑我吧，让我能够走出那一步。</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[事项安排4——课外学习]]></title>
-        <id>https://yzlcpgl.github.io/post/shi-xiang-an-pai-4-ke-wai-xue-xi/</id>
-        <link href="https://yzlcpgl.github.io/post/shi-xiang-an-pai-4-ke-wai-xue-xi/">
+        <title type="html"><![CDATA[小凳的思考]]></title>
+        <id>https://yzlcpgl.github.io/post/xiao-deng-de-si-kao/</id>
+        <link href="https://yzlcpgl.github.io/post/xiao-deng-de-si-kao/">
         </link>
-        <updated>2020-04-21T15:21:29.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="任务上到天文下到地理-不论手工脑力-尽情吸收为妙">【任务】上到天文，下到地理  不论手工，脑力  尽情吸收为妙</h3>
-<h3 id="时间自己安排即可">【时间】自己安排即可</h3>
-<h3 id="事项举例">【事项举例】</h3>
-<p>1、网课：犯罪心理学，经济学，中国社会史<br>
-2、书籍：哲学、社会史、杂书、生态环境变化<br>
-3、纪录片：人体、大脑、开挖掘机<br>
-4、手艺：纸雕、篆刻、吉他、口琴</p>
-<figure data-type="image" tabindex="1"><img src="https://yzlcpgl.github.io/post-images/1587482870597.jpeg" alt="" loading="lazy"></figure>
-<p>##【网址】<br>
-百度AI                 http://ai.baidu.com/<br>
-英语课本              http://www.tingroom.com/lesson/xinshiye2/<br>
-codes题库            http://codevs.cn/problem/?problemset_id=1<br>
-古德设计              https://www.gooood.cn/<br>
-中国裁判文书网    http://wenshu.court.gov.cn/<br>
-磁场                      https://web.cichang.net/community/5bc068057226f44b1989b136?allMoment=true<br>
-3D溜溜                ttps://www.3d66.com/<br>
-全国地理              http://www.webmap.cn/main.do?method=index<br>
-译言网                http://article.yeeyan.org/<br>
-中国纪录片            http://www.docuchina.cn/<br>
-训诂学                http://ocw.lib.ntnu.edu.tw/course/view.php?id=430<br>
-社会史                http://www.hprc.org.cn/gsyj/shs/<br>
-耶鲁大学              https://www.yale.edu/</p>
+        <updated>2020-05-22T03:04:13.000Z</updated>
+        <content type="html"><![CDATA[<p>了解自己很是一件难事了。<br>
+today，我又捡起了布袋戏，真的感觉自己的脑子里胡乱的思绪有地方放了。<br>
+想想小时候看电视的事情，果然我还是适合看着东西玩正事（bushi）<br>
+<b>重点还是，我不是个能专心做一件事情的人。一旦决心做一件事情就会吹毛求疵，就会狗带</b><br>
+所以，还是得多手抓</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[事项安排3——课内学习]]></title>
-        <id>https://yzlcpgl.github.io/post/shi-xiang-an-pai-3-ke-nei-xue-xi/</id>
-        <link href="https://yzlcpgl.github.io/post/shi-xiang-an-pai-3-ke-nei-xue-xi/">
+        <title type="html"><![CDATA[人生]]></title>
+        <id>https://yzlcpgl.github.io/post/ren-sheng/</id>
+        <link href="https://yzlcpgl.github.io/post/ren-sheng/">
         </link>
-        <updated>2020-04-21T15:16:27.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="任务完成课业">【任务】完成课业</h3>
-<h3 id="要求以考试90为己要坚决走在刷分第一线坚决不扩展知识应试为主">【要求】以考试90为己要，坚决走在刷分第一线，坚决不扩展知识，应试为主</h3>
-<h3 id="时间3hday">【时间】3h/day</h3>
-<figure data-type="image" tabindex="1"><img src="https://yzlcpgl.github.io/post-images/1587482348331.png" alt="" loading="lazy"></figure>
+        <updated>2020-05-18T03:08:40.000Z</updated>
+        <content type="html"><![CDATA[<p>人生还是该睡饱。<br>
+睡不饱，人生灰暗。<br>
+睡得好，烦恼减少。<br>
+当前目标，达到水准，找老师搞项目，水论文。<br>
+前几日看到了令人心动的offer里面的妹子，好像很久以前，想成为闪闪发光的人，那现在呢？</p>
+<p>肯定还是想啊！<br>
+就是最近身体健康阻挡了我发挥，整个人虚虚的。还是要早睡早起多喝热水</p>
+<p>然后A起来</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[事项安排2——法考]]></title>
-        <id>https://yzlcpgl.github.io/post/shi-xiang-an-pai-2-fa-kao/</id>
-        <link href="https://yzlcpgl.github.io/post/shi-xiang-an-pai-2-fa-kao/">
+        <title type="html"><![CDATA[阶段性目标]]></title>
+        <id>https://yzlcpgl.github.io/post/jie-duan-xing-mu-biao/</id>
+        <link href="https://yzlcpgl.github.io/post/jie-duan-xing-mu-biao/">
         </link>
-        <updated>2020-04-21T15:02:07.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="任务通过司法考试拿到a证">【任务】通过司法考试，拿到A证</h2>
-<h2 id="时间2020年挑一个月过书2021年3月备考2021年9月考试">【时间】2020年挑一个月过书，2021年3月备考，2021年9月考试</h2>
-<h2 id="每日任务emm暂无">【每日任务】emm暂无</h2>
-<p><img src="https://yzlcpgl.github.io/post-images/1587481816402.jpg" alt="" loading="lazy"><br>
-<img src="https://yzlcpgl.github.io/post-images/1587481822954.jpg" alt="" loading="lazy"></p>
+        <updated>2020-05-16T11:13:27.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="事件">事件</h1>
+<p>1、当一个合格组长，锻炼组织管理能力<br>
+2、找对象锻炼下交流能力<br>
+3、准备电赛与龙芯杯</p>
+<h1 id="能力or成果">能力or成果</h1>
+<p>1、独立完成一个项目（fpga向）<br>
+2、选择3门语言，做3个大型游戏/其他【c++/汇编/java】<br>
+3、与他人交流沟通能力</p>
 ]]></content>
     </entry>
 </feed>

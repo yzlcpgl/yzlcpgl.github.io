@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>符号化计算 | BLOG</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://yzlcpgl.github.io/favicon.ico?v=1593074347164">
+<link rel="stylesheet" href="https://yzlcpgl.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="符号对象
+建立
+sym单个符号对象
+名称=sym(a),a是变量名（加' '）或数值常量或数值矩阵或其他
+运算
+1、四则运算即可，但运算结果依然是符号表达式
+2、关系运算有6种运算符，6个函数
+设置值域：assume(condition)\..." />
+    <meta name="keywords" content="matlab" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://yzlcpgl.github.io">
+        <img src="https://yzlcpgl.github.io/images/avatar.png?v=1593074347164" class="site-logo">
+        <h1 class="site-title">BLOG</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://jiyuyang.cool" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://jiyuyang.cool/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://jiyuyang.cool/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://jiyuyang.cool/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://yzlcpgl.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">符号化计算</h2>
+            <div class="post-date">2020-05-06</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="符号对象">符号对象</h1>
+<h2 id="建立">建立</h2>
+<p>sym单个符号对象<br>
+名称=sym(a),a是变量名（加' '）或数值常量或数值矩阵或其他</p>
+<h2 id="运算">运算</h2>
+<p>1、四则运算即可，但运算结果依然是符号表达式<br>
+2、关系运算有6种运算符，6个函数<br>
+设置值域：assume(condition)\assume(expr,set)<br>
+一是条件，二是集合<br>
+3、逻辑运算，三种运算符&amp; | ~，4个函数 and,or,not xor<br>
+4、因式分解与展开运算<br>
+factor(s):对符号表达式s因式分解<br>
+expand(s)：对符号表达式s展开<br>
+collect(s)：合并同类项<br>
+collect(s,v)：将表达式s按变量v合并同类项<br>
+5、其他<br>
+提取有理数分子分母 [n,d]=numden(s)<br>
+提取符号表达式系数c=coeffs(s,x)<br>
+符号表达式化简simplify(s)<br>
+符号多项式与多项式系数向量间转换sym2poly<br>
+反之poly2sym</p>
+<h2 id="矩阵">矩阵</h2>
+<p>...</p>
+<h1 id="极限">极限</h1>
+<h2 id="符号函数的极限">符号函数的极限</h2>
+<p>limit(f,x,a)<br>
+单边极限limit(f,x,a,'left')</p>
+<h2 id="积分">积分</h2>
+<p>不定：inf<br>
+定：inf(x,a,b)</p>
+<h1 id="级数">级数</h1>
+<h2 id="级数求和">级数求和</h2>
+<p>求无穷级数和需要符号表达式求和函数symsum，格式：symsum(s,v,n,m)<br>
+s是级数通项，v是求和变量，n,m是求和变量v的初值和末值</p>
+<h2 id="将函数展开成幂级数">将函数展开成幂级数</h2>
+<p>taylor(f,v,a,Name,Value)</p>
+<h1 id="符号方程求解">符号方程求解</h1>
+<h2 id="代数方程">代数方程</h2>
+<p>solve(s)/slove(s,v)</p>
+<h2 id="常微分方程">常微分方程</h2>
+<p>用大写D表示导数<br>
+eg.D3y+D2y+Dy-x+5=0<br>
+dsolve(e1,e2,,,en,c1,,,cn,v)e为方程，c为初值条件，v为求解变量，t为默认自变量</p>
+<p>1 求下列级数之和。</p>
+<blockquote>
+<blockquote>
+<p>syms n;<br>
+s1=symsum(n^2,1,100)<br>
+s2=symsum((-1)^(n-1)/n,1,inf)<br>
+s3=symsum((-1)^(n-1)/(2*n-1),n,1,inf)<br>
+hypergeom([-1/2, 1], 1/2, -1)     %超几何函数<br>
+eval(s3)*4<br>
+银行利率的计算问题。</p>
+</blockquote>
+<blockquote>
+<p>syms k r;<br>
+p2=symsum(50000*(1+0.045/k)^k,k,2,2);<br>
+eval(p2)<br>
+p4=symsum(50000*(1+0.045/k)^k,k,4,4);<br>
+eval(p4)<br>
+p12=symsum(50000*(1+0.045/k)^k,k,12,12)）<br>
+eval(p12)<br>
+limit((1+r/k)^k,k,inf)<br>
+50000*exp(0.045)<br>
+例2 求函数f(x)在x=1处的5阶泰勒级数展开式。</p>
+</blockquote>
+<blockquote>
+<p>syms x;<br>
+f=(1+x+x<sup>2)/(1-x+x</sup>2);<br>
+taylor(f,x,1,'Order',6)<br>
+expand(ans)</p>
+</blockquote>
+</blockquote>
+<p>例3 利用泰勒展开式计算三角函数的值。</p>
+<blockquote>
+<blockquote>
+<p>syms x;<br>
+f=taylor(cos(x),x,pi)<br>
+x=3;<br>
+eval(f)<br>
+cos(3)</p>
+</blockquote>
+</blockquote>
+<p>例1 求下列极限。</p>
+<blockquote>
+<blockquote>
+<p>syms a m x n;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>f=(x<sup>(1/m)-a</sup>(1/m))/(x-a);</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>limit(f,x,a)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>g=(1+1/n)^n;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>limit(g,n,inf)</p>
+</blockquote>
+</blockquote>
+<p>例2 求下列函数的导数。</p>
+<blockquote>
+<blockquote>
+<p>syms  x y z;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>f=sqrt(1+exp(x));</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>diff(f)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>g=x*exp(y)/y^2;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>diff(g,x)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>diff(g,y)</p>
+</blockquote>
+</blockquote>
+<p>例3 求下列不定积分。</p>
+<blockquote>
+<blockquote>
+<p>syms x t;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>f=(3-x<sup>2)</sup>3;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>int(f)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>g=5<em>x</em>t/(1+x^2);</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>int(g,t)</p>
+</blockquote>
+</blockquote>
+<p>例4 求下列定积分。</p>
+<blockquote>
+<blockquote>
+<p>syms x t;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>int(abs(1-x),1,2)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>int(1/(1+x^2),-inf,inf)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>int(4*x/t,t,2,sin(x))</p>
+</blockquote>
+</blockquote>
+<p>河道水流量的估算问题。</p>
+<p>xi=0:50:600;</p>
+<p>yi=[4.4,4.5,4.6,4.8,4.9,5.1,5.4,5.2,5.5,5.2,4.9,4.8,4.7];</p>
+<p>p=polyfit(xi,yi,3);</p>
+<p>plot(xi,yi,'o',xi,polyval(p,xi));</p>
+<p>syms y x;</p>
+<p>y=poly2sym(p,x);</p>
+<p>s=int(y,x,0,600);</p>
+<p>v=s*0.6;</p>
+<p>eval(v)</p>
+<p>yn=-yi;</p>
+<p>p=polyfit(xi,yn,3);</p>
+<p>plot(xi,yn,'o',xi,polyval(p,xi));</p>
+<p>syms y x yii;</p>
+<p>y=poly2sym(p,x);</p>
+<p>yii=diff(y,x);</p>
+<p>x=50:60;</p>
+<p>k=eval(yii);</p>
+<p>all(abs(k)&lt;1/1.5)</p>
+<p>1 解方程ax^2+bx+c=0。</p>
+<blockquote>
+<blockquote>
+<p>syms x y a b c;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>solve(a<em>x^2+b</em>x+c==0)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>f=a<em>x^2+b</em>x+c==0;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>solve(f)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>solve(a<em>x^2+b</em>x+c)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>f=a<em>x^2+b</em>x+c</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>solve(f)</p>
+</blockquote>
+</blockquote>
+<p>例2 求下列微分方程或方程组的解。</p>
+<blockquote>
+<blockquote>
+<p>syms x y t;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>y=dsolve('Dy-(x<sup>2+y</sup>2)/x^2/2',x)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>[x,y]=dsolve('Dx=4<em>x-2</em>y','Dy=2*x-y',t)</p>
+</blockquote>
+</blockquote>
+<p>疾病传染问题。</p>
+<blockquote>
+<blockquote>
+<p>syms a b c y t;<br>
+f=dsolve('Dy=a<em>y</em>(1-y)-c<em>y', 'y(0)=b',t)<br>
+f=dsolve('Dy=a</em>y*(1-y)-a*y', 'y(0)=b',t)</p>
+</blockquote>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://yzlcpgl.github.io/tag/DBvq6qU6A/" class="tag">
+                    matlab
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://yzlcpgl.github.io/post/python-zu-jian-ku-an-zhuang/">
+                  <h3 class="post-title">
+                    python组件/库安装
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
