@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>流Ⅱ | BLOG</title>
+<title>BLOG</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,13 +18,8 @@
 
 
 
-    <meta name="description" content="两种处理流的方式，一为生成一个数据处理一个，二为处理流整体
-
-//递归求和
-(define (add-stream s1 s2)
-    (cond ( (empty-stream? s1) s2 )//如果s1为空，相加结果为s2
-   ..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="温故而知新">
+    
   </head>
   <body>
     <div id="app" class="main">
@@ -94,77 +89,36 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">流Ⅱ</h2>
-            <div class="post-date">2020-04-27</div>
-            
-            <div class="post-content" v-pre>
-              <p>两种处理流的方式，一为生成一个数据处理一个，二为处理流整体</p>
-<pre>
-//递归求和
-(define (add-stream s1 s2)
-    (cond ( (empty-stream? s1) s2 )//如果s1为空，相加结果为s2
-              ((empty-stream? s2) s1 )//如果2空，相加结果为1
-              (else
-              (cons-stream)//构建新流
-              (+ (head s1) (head s2) )//对流1和流2的头部求和
-              (add-streams (tail s1)//再对流1与流2的尾部重复上述操作
-              (tail s2)))))
-</pre>
-<pre>
-//常数c，流s，乘法
-(define (scale-stream c a)
-(map-stream (lambda (x)(* x c)) s ))
-</pre>
-<h3 id="一次性处理流">一次性处理流</h3>
-<pre>
-//表示无穷1的流
-(define ones ( cons-stream 1 ones) )
-</pre>
-<pre>
-//整数流
-(define integers  
- (cons-stream 1 //第一个数字是1
-                    (add-stream integers ones))) //随后，每次为流的第一个元素加1；又因为新的流在不断产生，整数流就诞生了【神奇的过程，因为数据真的像是在流动】
-</pre>
-<p><b>它的成功重点在于延时求值  (cons-stream 1 ones)==(cons 1 (delay ones))</b><br>
-<img src="https://yzlcpgl.github.io/post-images/1588004131910.JPG" alt="" loading="lazy"><br>
-上面的例子将1改变，就可以变成信号处理的模型</p>
-<pre>
-(define (integral s initial-value dt)
-(define int
-(cons-stream initial-value //int是intvalue开始的流，方便后面引用自己
-(add-streams (scale-stream dt s)
-int )))
-int)
-</pre>
-<h3 id="斐波那契数列">斐波那契数列</h3>
-<pre>
-[惰性求值]
-(define fibs
-(cons-stream 0
-(cons-stream 1
-(add-streams fibs (tail fibs)))))
-</pre>
-<p>演示过程：<br>
-<img src="https://yzlcpgl.github.io/post-images/1588006632530.png" alt="" loading="lazy"></p>
-
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://yzlcpgl.github.io/post/xu-lun/">
-                  <h3 class="post-title">
-                    绪论
-                  </h3>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://yzlcpgl.github.io/post/hello-gridea/">
+                  <h2 class="post-title">Hello World</h2>
                 </a>
+                <div class="post-date">
+                  2020-04-21
+                </div>
+                <div class="post-abstract">
+                  <p>👏  建立之初 <strong>[ ]<sub>(￣▽￣)</sub></strong>* ！<br>
+✍️   一个静态博客。记录生活、心情、知识、笔记、创意... ...</p>
+
+                </div>
               </div>
-            
+              
+                <a class="right" href="https://yzlcpgl.github.io/post/hello-gridea/">
+                  <div class="feature-container" style="background-image: url('https://yzlcpgl.github.io/post-images/hello-gridea.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
 
-            
-
-          </div>
+          <div class="pagination-container">
+  
+    <a href="https://yzlcpgl.github.io/page/3/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+</div>
 
         </div>
       </div>

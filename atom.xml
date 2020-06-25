@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yzlcpgl.github.io</id>
     <title>BLOG</title>
-    <updated>2020-06-25T08:39:41.170Z</updated>
+    <updated>2020-06-25T16:34:43.914Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yzlcpgl.github.io"/>
     <link rel="self" href="https://yzlcpgl.github.io/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://yzlcpgl.github.io/images/avatar.png</logo>
     <icon>https://yzlcpgl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BLOG</rights>
+    <entry>
+        <title type="html"><![CDATA[日记]]></title>
+        <id>https://yzlcpgl.github.io/post/ri-ji/</id>
+        <link href="https://yzlcpgl.github.io/post/ri-ji/">
+        </link>
+        <updated>2020-06-25T16:26:54.000Z</updated>
+        <content type="html"><![CDATA[<p>今天被人拉黑了。<br>
+晚上，看似情真意切地写了一封道歉信。<br>
+再准备找人发出去的时候，看到了聊天记录。<br>
+一瞬间，自己的道歉信更加苍白了，发不发也没必要了。对方好像又透过我浅薄的文字，看见了我卑劣的灵魂。<br>
+人与人的交往更是“商量”，浅浅地有来有往，直接抛出自己的条件只是对对方的否认和陌生。<br>
+商量、沟通、交流。希望自己能慢慢学会这些。<br>
+我的行为，其实就像当初高中田在讲台上青春的宣告，只顾自己想法，不管对方是否接受/感到难堪。但好歹人家还是有真情实感的，我只有冷漠。<br>
+害，加油加油</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[新的想法]]></title>
         <id>https://yzlcpgl.github.io/post/xin-de-xiang-fa/</id>
@@ -212,22 +228,6 @@ today，我又捡起了布袋戏，真的感觉自己的脑子里胡乱的思绪
 <p>肯定还是想啊！<br>
 就是最近身体健康阻挡了我发挥，整个人虚虚的。还是要早睡早起多喝热水</p>
 <p>然后A起来</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[阶段性目标]]></title>
-        <id>https://yzlcpgl.github.io/post/jie-duan-xing-mu-biao/</id>
-        <link href="https://yzlcpgl.github.io/post/jie-duan-xing-mu-biao/">
-        </link>
-        <updated>2020-05-16T11:13:27.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="事件">事件</h1>
-<p>1、当一个合格组长，锻炼组织管理能力<br>
-2、找对象锻炼下交流能力<br>
-3、准备电赛与龙芯杯</p>
-<h1 id="能力or成果">能力or成果</h1>
-<p>1、独立完成一个项目（fpga向）<br>
-2、选择3门语言，做3个大型游戏/其他【c++/汇编/java】<br>
-3、与他人交流沟通能力</p>
 ]]></content>
     </entry>
 </feed>
